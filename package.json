@@ -1,0 +1,12 @@
+{
+  "name": "qruri",
+  "version": "0.0.1",
+  "description": "NodeJS port of Kang Seonghoon's qr.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shesek/qruri"
+  },
+  "keywords": [ "qr", "qrcode" ],
+  "author": "Nadav Ivgi",
+  "license": "Public domain or CC0"
+}
