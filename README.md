@@ -1,11 +1,9 @@
-A simple client-side qr library that returns data URI,
-packaged as a nodejs module for use with [browserify](http://browserify.org/).
+A simple qr library that returns the image as a data URI,
+packaged as a nodejs module for use on nodejs or with [browserify](http://browserify.org/).
 Requires [canvas support](http://caniuse.com/#feat=canvas).
 
 Originally written by Kang Seonghoon (http://hg.mearie.org/qrjs/),
-packaged as a nodejs module with a slightly modified public API.
-
-For a server-side library, see [node-qr](https://github.com/bcelenza/node-qr).
+and packaged here as a nodejs module with a slightly modified public API.
 
 ### Usage
 Install with `npm install qruri` and call

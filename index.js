@@ -19,6 +19,11 @@
  * polynomial) of ECCs depend to the version and ECC level.
  */
 
+// Load canvas in nodejs environment
+if (typeof document === 'undefined') {
+  var Canvas = require('canvas'+/*ignore this, browserify*/'');
+}
+
 // per-version information (cf. JIS X 0510:2004 pp. 30--36, 71)
 //
 // [0]: the degree of generator polynomial by ECC levels
@@ -632,6 +637,13 @@ var generate = function(data, ver, mode, ecclevel, mask) {
 	return matrix;
 };
 
+// Create canvas on browser or node
+var createcanvas = function() {
+  return typeof document !== 'undefined'
+    ? document.createElement('canvas')
+    : new Canvas;
+};
+
 // the public interface is trivial; the options available are as follows:
 //
 // - version: an integer in [1,40]. when omitted (or -1) the smallest possible
@@ -704,7 +716,7 @@ module.exports = function(data, options) {
   var n = matrix.length;
   var size = modsize * (n + 2 * margin);
 
-  var canvas = document.createElement('canvas'), context;
+  var canvas = createcanvas(), context;
   canvas.width = canvas.height = size;
   context = canvas.getContext('2d');
   if (!context) throw 'canvas support is needed for PNG output';
