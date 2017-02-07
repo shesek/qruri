@@ -19,10 +19,8 @@
  * polynomial) of ECCs depend to the version and ECC level.
  */
 
-// Load canvas in nodejs environment
-if (typeof document === 'undefined') {
-  var Canvas = require('canvas'+/*ignore this, browserify*/'');
-}
+// Create canvas on browser or node
+var createcanvas = require('./canvas');
 
 // per-version information (cf. JIS X 0510:2004 pp. 30--36, 71)
 //
@@ -635,13 +633,6 @@ var generate = function(data, ver, mode, ecclevel, mask) {
 	maskdata(matrix, reserved, mask);
 	putformatinfo(matrix, reserved, ecclevel, mask);
 	return matrix;
-};
-
-// Create canvas on browser or node
-var createcanvas = function() {
-  return typeof document !== 'undefined'
-    ? document.createElement('canvas')
-    : new Canvas;
 };
 
 // the public interface is trivial; the options available are as follows:
