@@ -12,9 +12,6 @@
   ],
   "author": "Nadav Ivgi",
   "license": "Public domain or CC0",
-  "dependencies": {
-    "canvas": "^1.1.3"
-  },
   "browser": {
     "./canvas.js": "./canvas.browser.js"
   }
